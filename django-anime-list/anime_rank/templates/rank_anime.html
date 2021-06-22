@@ -7,17 +7,16 @@
       <tr>
         <th>Anime</th>
         <th>Nota</th>
-        <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
-      <tr>
       {% for anime in animes %}
+      <tr>
         <td>{{ anime.name }}</td>
         <td>{{ anime.grade }}</td>
-      {% endfor %}
       </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>
