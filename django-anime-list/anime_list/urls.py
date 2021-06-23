@@ -19,5 +19,6 @@ from django.urls.conf import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("anime_rank.urls")),
+    path('animes/', include("anime_rank.urls")),
+    path('mangas/', include("manga_list.urls")),
 ]
