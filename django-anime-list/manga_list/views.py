@@ -8,3 +8,10 @@ def manga_index(request):
         'mangas': mangas
     }
     return render(request, 'manga_index.html', context)
+
+def manga_detail(request, pk):
+    manga = Manga.objects.get(pk=pk)
+    context = {
+        "manga": manga,
+    }
+    return render(request, "manga_detail.html", context)

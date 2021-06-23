@@ -13,7 +13,7 @@
       <tbody>
         {% for manga in mangas %}
         <tr>
-          <td>{{ manga.name }}</a></td>
+          <td><a href="{% url 'manga_detail' manga.pk %}">{{ manga.name }}</a></td>
           <td>{{ manga.grade }}</td>
           {% if manga.status == True %}
             <td>Lido</td>

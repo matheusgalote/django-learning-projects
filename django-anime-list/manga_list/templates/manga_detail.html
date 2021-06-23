@@ -1,0 +1,23 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block content %} 
+<h1>{{ manga.title }}</h1>
+<div class="row">
+    <div class="row-md-8">
+        <img class="card-img-top" src="{% static manga.image %}">
+    </div>
+    <div class="pl-5">
+        <h5>Nota</h5>
+        <p>{{ manga.grade }}</p>
+    </div>
+    <div class="pl-5"> 
+        <h5>Status</h5>
+        {% if manga.status == True %}
+            <p class="text-success">Lido</p>
+        {% else %} 
+            <p class="text-danger">Lendo</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
