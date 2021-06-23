@@ -1,9 +1,10 @@
 {% extends "base.html" %} 
-
+{% load static %} 
 {% block content %}
 <h1>{{ anime.name }}</h1>
 <div class="row">
-    <div class="col-mdd-8">
+    <div class="col-md-8">
+        <img class="card-img-top" src="{% static anime.image %}">
     </div>
     <div class="col-md-4">
         <h5>Nota</h5>
