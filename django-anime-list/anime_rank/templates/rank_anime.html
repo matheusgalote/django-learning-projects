@@ -13,7 +13,7 @@
     <tbody>
       {% for anime in animes %}
       <tr>
-        <td>{{ anime.name }}</td>
+        <td><a href="{% url 'anime_detail' anime.pk %}">{{ anime.name }}</a></td>
         <td>{{ anime.grade }}</td>
       </tr>
       {% endfor %}
