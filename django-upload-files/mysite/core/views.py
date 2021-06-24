@@ -38,3 +38,10 @@ def upload_book(request):
     return render(request, 'upload_book.html', {
         'form': form,
     })
+
+def book_detail(request, pk):
+    book = Book.objects.get(pk=pk)
+    context = {
+        'book': book
+    }
+    return render(request, 'book_detail.html', context)

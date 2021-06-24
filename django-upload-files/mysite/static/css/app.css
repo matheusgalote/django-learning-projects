@@ -1,0 +1,16 @@
+body {
+    background-color: #5c848e;
+
+}
+
+/* posiciona o botão de download da página book_detail na parte de baixo
+daa div
+*/
+#download {
+    position: relative;
+}
+
+#download {
+    position: absolute;
+    bottom: 0;
+}

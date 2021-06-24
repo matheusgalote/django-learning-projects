@@ -12,6 +12,7 @@
                 <th>Cover</th>
                 <th>Title</th>
                 <th>Author</th>
+                <th>Details</th>
                 <th>Download</th>
             </tr>
         </thead>
@@ -28,10 +29,14 @@
                     <td>{{ book.title }}</td>
                     <td>{{ book.author }}</td>
                     <td>
+                        <a href="{% url 'book_detail' book.pk %}" class="btn btn-info btn-sm">About</a>
+                    </td>
+                    <td>
                         <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">Download PDF</a>
                     </td>
                 </tr>
             {% endfor %}
+           
         </tbody>
     </table>
 {% endblock %}

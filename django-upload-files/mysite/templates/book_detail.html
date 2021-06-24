@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+
+<h1>{{ book.title }} - {{ book.author }}</h1>
+<div class="row pt-4">
+    <div class="col-md-8">
+        {% if book.cover %}
+            <img src="{{ book.cover.url }}" width="400px" >
+        {% else %} 
+            <p class="text-muted" >No cover.</p>
+        {% endif %}
+
+    </div>
+    <div>
+        <div class="pb-4">
+            {% if book.description %} 
+                <p>{{ book.description %}</p>
+            {% else %} 
+                <p class="text-muted">No has description.</p>
+            {% endif %}
+        </div>
+        <div>
+            <p id="download">
+                <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">Download PDF</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
