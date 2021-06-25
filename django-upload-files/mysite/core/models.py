@@ -1,6 +1,8 @@
 from django.db import models
 
-# Create your models here.
+
+
+# Create your models here
 class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
@@ -10,3 +12,8 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+    def delete(self, *args, **kwargs):
+        self.pdf.delete()
+        self.cover.delete()
+        super().delete(*args, **kwargs)

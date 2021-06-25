@@ -29,10 +29,16 @@
                     <td>{{ book.title }}</td>
                     <td>{{ book.author }}</td>
                     <td>
-                        <a href="{% url 'book_detail' book.pk %}" class="btn btn-info btn-sm">About</a>
+                        <a href="{% url 'book_detail' book.pk %}" class="btn btn-info btn-sm">Info</a>
                     </td>
                     <td>
                         <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">Download PDF</a>
+                    </td>
+                    <td>
+                        <form method="post" action="{% url 'delete_book' book.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
                     </td>
                 </tr>
             {% endfor %}

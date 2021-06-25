@@ -42,6 +42,15 @@ def upload_book(request):
 def book_detail(request, pk):
     book = Book.objects.get(pk=pk)
     context = {
-        'book': book
+        'book': book,
     }
     return render(request, 'book_detail.html', context)
+
+
+def delete_book(request, pk):
+    if request.method == 'POST':
+        book = Book.objects.get(pk=pk)
+        book.delete()
+    return redirect('book_list')
+
+

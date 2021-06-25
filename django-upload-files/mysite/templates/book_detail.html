@@ -15,7 +15,7 @@
     <div>
         <div class="pb-4">
             {% if book.description %} 
-                <p>{{ book.description %}</p>
+                <p>{{ book.description }}</p>
             {% else %} 
                 <p class="text-muted">No has description.</p>
             {% endif %}
@@ -25,6 +25,8 @@
                 <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">Download PDF</a>
             </p>
         </div>
+       
     </div>
+  
 </div>
 {% endblock %}
