@@ -53,4 +53,13 @@ def delete_book(request, pk):
         book.delete()
     return redirect('book_list')
 
+class BookListView(ListView):
+    model = Book
+    template_name = 'book_list.html'
+    context_object_name = 'books'
 
+class UploadBookView(CreateView):
+    model = Book
+    fields = ('title', 'author', 'pdf', 'cover', 'description')
+    success_url = reverse_lazy('class_book_list')
+    template_name = 'upload_book.html'
