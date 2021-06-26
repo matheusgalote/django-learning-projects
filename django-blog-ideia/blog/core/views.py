@@ -15,3 +15,12 @@ def blog_category(request, category):
         "posts": posts
     }
     return render(request, "blog_category.html", context)
+
+def blog_detail(request, pk):
+    post = Post.objects.get(pk=pk)
+    comments = Comment.objects.filter(post=post)
+    context = {
+        "post": post,
+        "comments": comments,
+    }
+    return render(request, "blog_detail.html", context)
