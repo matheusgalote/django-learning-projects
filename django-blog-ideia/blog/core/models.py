@@ -10,7 +10,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField('Category', related_name='posts')
-    cover_img = models.ImageField(upload_to='posts/covers/', null=True, blank=True)
+    cover_img = models.ImageField(upload_to='posts/covers/',null=True, blank=True)
 
 class Comment(models.Model):
     author = models.CharField(max_length=60)
