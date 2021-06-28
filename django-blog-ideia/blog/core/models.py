@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=20)
+    # criar posteriormente a descrição da categoria
 
 class Post(models.Model):
     title = models.CharField(max_length=200)

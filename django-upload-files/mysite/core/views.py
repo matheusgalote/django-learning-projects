@@ -53,6 +53,7 @@ def delete_book(request, pk):
         book.delete()
     return redirect('book_list')
 
+
 class BookListView(ListView):
     model = Book
     template_name = 'book_list.html'
