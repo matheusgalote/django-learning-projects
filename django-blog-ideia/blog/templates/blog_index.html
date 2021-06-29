@@ -11,20 +11,20 @@
                         {% if post.cover_img %} 
                             <img src="{{ post.cover_img.url }}" class="card-img-top embed-responsive-item rounded" height="200px">
                         {% else %}
-                            <span class="text-muted">No Image</span>
+                            <span class="text-muted card-img-top embed-responsive-item rounded d-flex justify-content-center">No Image</span>
                         {% endif %}
                     </div>
                 </a>
                 <div class="card-body">
                     <h5 class="card-title"><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h5>
-                    {% for category in post.categories.all %}
                         <p class="card-text">
                             <small class="text-muted">
                                 <span class="fa fa-tags"></span>
-                                <a class="badge badge-light text-muted"  href="{% url 'blog_category' category.name %}">{{ category.name }}</a>
-                            </small> 
+                                {% for category in post.categories.all %}
+                                    <a class="badge badge-light text-muted"  href="{% url 'blog_category' category.name %}">{{ category.name }}</a>
+                                {% endfor %}
+                            </small>
                         </p>
-                    {% endfor %}
                     <p class="card-text">{{ post.body | slice:":150"}}...</p>
                 </div>
             </div>
