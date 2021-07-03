@@ -16,9 +16,14 @@
             </div>
         
             <div class="content">
+                <span class="fa fa-tags"></span>
+                    {% for category in post.categories.all %}
+                        <a class="badge badge-light has-background-link-light"  href="{% url 'blog_category' category.name %}">{{ category.name }}</a>
+                    {% endfor %}
+                </small>
                 <p>{{ post.body | slice:":150"}}...</p>
                 <br>
-                <time>{{ post.created_at|date:"Y-m-d H:i" }}</time>
+                <time>{{ post.created_at|date:"d-m-Y H:i" }}</time>
             </div>
             </div>
         </div>

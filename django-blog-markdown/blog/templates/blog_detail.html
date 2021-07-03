@@ -1,7 +1,8 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load blog_extras  %}
 {% block content %} 
     <div class="box">
-        <section class="hero is-primary is-medium"> 
+        <section class="hero is-primary is-small"> 
             <div class="hero-body">
                 <p class="title">{{ post.title }}</p>
                 <p class="subtittle">{{ post.created_at|date:"Y-m-d H:i" }}</p>
@@ -11,7 +12,7 @@
             <p>{{ post.intro }}</p>
         </div>
         <div class="content intro">
-            <p>{{ post.body }}</p>
+            <p>{{ post.body|convert_markdown|safe }}</p>
         </div>
     </div>
 {% endblock %} 
