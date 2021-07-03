@@ -1,0 +1,21 @@
+body, ul, li, p {
+    margin: 0px;
+    padding: opx;
+    list-style: none;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin-bottom: 100px;
+}
+
+.card {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* .card > div {
+    padding-top: 10px;
+    margin: 10px;
+} */
