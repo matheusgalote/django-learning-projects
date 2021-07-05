@@ -21,7 +21,8 @@ from django.urls.conf import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('blog.urls'))
+    path('', include('blog.urls')),
+    path('froala_editor/',include('froala_editor.urls'))
 ]
 
 if settings.DEBUG:
