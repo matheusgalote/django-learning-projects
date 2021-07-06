@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Post
 
 def blog_index(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-created_at')
     return render(request, 'blog_index.html', {'posts': posts})
 
 def blog_detail(request, pk):
