@@ -1,41 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title is-1">{{ category | title }}</h1>
-<div class="columns">
     {% for post in posts %}
-        <div class="column is-one-third">
-            <div class="card mb-4">
-
-                <div class="card-image">
-                    <figure class="image image is-3by2">
-                        {% if post.cover_img %}
-                            <img src="{{ post.cover_img.url }}">
-                        {% else %} 
-                            <img src="https://bulma.io/images/placeholders/1280x960.png">
-                        {% endif %}
-                    </figure>
+        <div class="card mb-4">
+            <div class="card-content">
+                <div class="media">
+                <div class="media-content">
+                    <p class="title is-4"><a href="{% url 'blog_detail' post.id %}">{{ post.title }}</a></p>
                 </div>
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-content">
-                            <p class="title is-4"><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></p>
-                            <small>
-                                {{ post.created_on.date }} |&nbsp;
-                                    Categories:&nbsp;
-                                {% for category in post.categories.all %}
-                                    <a href="{% url 'blog_category' category.name %}">
-                                        {{ category.name }}
-                                    </a>&nbsp;
-                                {% endfor %}
-                            </small>
-                            <p class="subtitle is-6">{{ post.body | slice:":400" }}...</p>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        
+            <div class="content">
+                <small class="text-muted">
+                    {% for category in post.categories.all %}
+                        <span class="fa fa-tags">
+                            <a class="badge badge-light has-background-primary-ligh" id="cat"  href="{% url 'blog_category' category.name %}">{{ category.name }}</a>
+                        </span>
+                    {% endfor %}
+                </small>
+                <br>
+                <time>{{ post.created_at|date:"d b Y H:i" }}</time>
+            </div>
             </div>
         </div>
     {% endfor %}
-</div>
 {% endblock %}
 
